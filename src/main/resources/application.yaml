@@ -23,4 +23,3 @@ logging:
   level:
     root: info
     io.r2dbc.postgresql.QUERY: DEBUG
-#    reactor.netty: info
