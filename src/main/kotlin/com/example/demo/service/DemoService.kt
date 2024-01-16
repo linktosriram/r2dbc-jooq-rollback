@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.Propagation
 import org.springframework.transaction.reactive.TransactionalOperator
 import org.springframework.transaction.reactive.executeAndAwait
 import org.springframework.transaction.support.DefaultTransactionDefinition
-import java.time.OffsetDateTime
 
 @Service
 class DemoService(
@@ -20,8 +19,8 @@ class DemoService(
 
     suspend fun addRecords(): Unit = operator.executeAndAwait {
         log.info("Inserting records")
-        repo.insert("a", OffsetDateTime.now())
-        repo.insert("b", OffsetDateTime.now())
+        repo.insert("a")
+        repo.insert("b")
     }
 
     suspend fun getAll(): List<String> = repo.getAll()

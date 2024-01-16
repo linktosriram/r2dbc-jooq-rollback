@@ -8,12 +8,11 @@ import kotlinx.coroutines.reactive.awaitSingle
 import org.jooq.DSLContext
 import org.springframework.stereotype.Repository
 import reactor.core.publisher.Flux
-import java.time.OffsetDateTime
 
 @Repository
 class DemoRepository(private val db: DSLContext) {
 
-    suspend fun insert(idempotencyId: String, issueTime: OffsetDateTime) {
+    suspend fun insert(idempotencyId: String) {
         if (idempotencyId == "b") {
             throw RuntimeException("error while inserting")
         }
