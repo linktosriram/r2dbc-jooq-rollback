@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: demo-app
+  mandatory-file-encoding: utf-8
+  main:
+    web-application-type: reactive
+  jooq:
+    sql-dialect: postgres
+  r2dbc:
+    url: r2dbc:postgresql://127.0.0.1:5559/demo_db
+  flyway:
+    url: jdbc:postgresql://127.0.0.1:5559/demo_db
+
+
+server:
+  error:
+    include-exception: true
+    include-stacktrace: always
+  http2:
+    enabled: true
+
+logging:
+  level:
+    root: info
+    io.r2dbc.postgresql.QUERY: DEBUG
+#    reactor.netty: info
